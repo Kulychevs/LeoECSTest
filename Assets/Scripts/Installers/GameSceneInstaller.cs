@@ -1,7 +1,4 @@
-using System;
-using System.ComponentModel;
 using Leopotam.EcsLite;
-using UnityEngine.PlayerLoop;
 using Zenject;
 
 namespace UnityTemplateProjects.Installers
@@ -10,6 +7,8 @@ namespace UnityTemplateProjects.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInstance<ITimeService>(new UnityTimeService()).AsSingle().NonLazy();
+            Container.BindInstance<IPositionInputService>(new UnityPositionInputService()).AsSingle().NonLazy();
             Container.BindInstance(new EcsWorld()).AsSingle().NonLazy();
         }
     }
