@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Leopotam.EcsLite;
-using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
 using UnityTemplateProjects.Installers;
 using Zenject;

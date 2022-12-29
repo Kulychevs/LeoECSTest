@@ -6,13 +6,13 @@ namespace UnityTemplateProjects.Installers
     [RequireComponent(typeof(EcsComponentCreator))]
     public abstract class EcsComponentProvider<T> : MonoBehaviour where T : struct
     {
-        [SerializeField] private T _component;
-        
-        private EcsComponentCreator _ecsComponentCreator;
+        [SerializeField] protected T _component;
+
+        protected EcsComponentCreator _ecsComponentCreator;
 
         public T Component => _component;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _ecsComponentCreator = GetComponent<EcsComponentCreator>();
 

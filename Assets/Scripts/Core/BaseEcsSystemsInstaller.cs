@@ -1,7 +1,5 @@
-using Leopotam.EcsLite;
 using Leopotam.EcsLite.UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using Zenject;
 
 namespace UnityTemplateProjects.Installers
