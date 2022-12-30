@@ -3,7 +3,7 @@ using UnityTemplateProjects.Installers;
 
 namespace ComponentsProviders
 {
-    public class RotationSpeedProvider : EcsComponentProvider<RotationNormalizedSpeedComponent>
+    public class RotationNormalizedSpeedProvider : EcsComponentProvider<RotationNormalizedSpeedComponent>
     {
     }
 }

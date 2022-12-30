@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Systems
 {
-    public class RotationSystem : BaseEcsSystem<RotationComponent, DestinationRotationComponent, RotationNormalizedSpeedComponent>
+    public class LerpRotationSystem : BaseEcsSystem<RotationComponent, DestinationRotationComponent, RotationNormalizedSpeedComponent>
     {
         [Inject]
         private ITimeService _TimeService;

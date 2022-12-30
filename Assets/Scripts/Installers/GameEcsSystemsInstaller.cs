@@ -16,7 +16,7 @@ namespace UnityTemplateProjects.Installers
             Container.BindSystem<DoorDeactivationSystem, UpdateSystemsContainer>();
 
             Container.BindSystem<MovementSystem, UpdateSystemsContainer>();
-            Container.BindSystem<RotationSystem, UpdateSystemsContainer>();
+            Container.BindSystem<LerpRotationSystem, UpdateSystemsContainer>();
 
             Container.BindSystem<SynchronizeTransformSystem, UpdateSystemsContainer>();
             Container.BindSystem<PlayerAnimationSystem, UpdateSystemsContainer>();
