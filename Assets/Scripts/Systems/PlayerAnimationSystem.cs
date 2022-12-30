@@ -7,11 +7,9 @@ using UnityTemplateProjects.Systems;
 
 namespace Systems
 {
-    public class PlayerAnimationSystem : BaseEcsSystem
+    public class PlayerAnimationSystem : BaseEcsSystem<AnimatorViewComponent, PlayerTagComponent>
     {
         private const string RUN = "IsRun";
-
-        private EcsFilter _PlayerFilter;
 
         public override IEnumerable<IEcsPool> GetPools(EcsWorld ecsWorld)
         {
@@ -24,22 +22,10 @@ namespace Systems
             foreach (var entity in entities)
             {
                 var animatorView = pools.GetComponent<AnimatorViewComponent>(entity);
-                foreach (var player in _PlayerFilter)
-                {
-                    var destinationPool = pools.GetPool<DestinationComponent>();
-                    var runValue = destinationPool.Has(player);
-                    animatorView.Value.SetBool(RUN, runValue);
-                }
+                var destinationPool = pools.GetPool<DestinationComponent>();
+                var runValue = destinationPool.Has(entity);
+                animatorView.Value.SetBool(RUN, runValue);
             }
-        }
-
-        protected override EcsFilter InitFilter(EcsWorld ecsWorld)
-        {
-            _PlayerFilter = ecsWorld.Filter<PlayerTagComponent>().
-                End();
-
-            return ecsWorld.Filter<AnimatorViewComponent>().
-                End();
         }
     }
 }
