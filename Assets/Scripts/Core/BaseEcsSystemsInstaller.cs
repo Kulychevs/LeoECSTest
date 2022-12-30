@@ -18,8 +18,8 @@ namespace UnityTemplateProjects.Installers
             Container.Bind(typeof(BaseSystemsContainer), typeof(LateUpdateSystemsContainer)).To<LateUpdateSystemsContainer>().AsTransient().WithArguments(_isGlobal);
             
             Container.BindSystem<EcsWorldDebugSystem, UpdateSystemsContainer>();
-            
-            Container.InstantiatePrefabForComponent<EcsExecutor>(_ecsExecutor);
+
+            Container.Bind<EcsExecutor>().FromComponentInNewPrefab(_ecsExecutor).AsSingle().NonLazy();
         }
 
         protected abstract void OnInstallBindings();
